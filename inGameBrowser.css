@@ -1,0 +1,39 @@
+#inGameBrowser{/* In Game Browser */
+	width: 75%;
+	height: 75%;
+	position: fixed;
+	z-index: 2;
+	margin-top: 7.25%;
+	margin-left: 12.5%;
+}
+
+#inGameBrowser input[type="text"]{/* In Game Browser URL */
+	width: calc(100% - 70px);
+	margin-top: 32px;
+	float: left;
+}
+
+#inGameBrowser input[type="button"]{/* In Game Browser URL */
+	width: 60px;
+	margin-top: 10px;
+	float: right;
+}
+
+#inGameBrowser div{/* In Game Browser X Button */
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	float: right;
+	font-weight: bold;
+}
+
+#inGameBrowser iframe{/* In Game Browser Browser */
+	width: 100%;
+	height: calc(100% - 80px);
+	margin-top: 5px;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #bdc3c7;
+	border-radius: 2px;
+}
