@@ -1,10 +1,9 @@
 #inGameBrowser{/* In Game Browser */
-	width: 75%;
-	height: 75%;
+	min-width: 500px !important;
+	min-height: 500px !important;
 	position: fixed;
 	z-index: 2;
-	margin-top: 7.25%;
-	margin-left: 12.5%;
+	border-bottom-right-radius: 10px;
 }
 
 #inGameBrowser input[type="text"]{/* In Game Browser URL */
@@ -29,6 +28,8 @@
 }
 
 #inGameBrowser iframe{/* In Game Browser Browser */
+	min-width: 20px;
+	min-height: 20px;
 	width: 100%;
 	height: calc(100% - 80px);
 	margin-top: 5px;
@@ -36,4 +37,33 @@
 	border-width: 1px;
 	border-color: #bdc3c7;
 	border-radius: 2px;
+}
+
+.ui-resizable-se{/* In Game Browser Resize Corner */
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	display: block;
+	margin-top: -10px;
+	margin-bottom: 20px;
+	margin-right: -10px;
+	text-align: center;
+	float: right;
+	font-weight: bold;
+	border-style: dashed;
+	border-width: 2px;
+	border-color: #bdc3c7;
+	border-left-style: none;
+	border-top-style: none;
+	border-radius: 3px;
+}
+
+#openInGameBrowser{
+	display: none;
+	background: none;
+	color: white;
+}
+
+#version_info:hover #openInGameBrowser{
+	display: inline-block;
 }
