@@ -4,7 +4,7 @@
     "display_name": "inGameBrowser",
     "description": "Adds an in game web browser",
     "author": "someonewhoisnobody",
-    "version": "1.0",
+    "version": "1.1",
     "build": "62168",
     "date": "2014/3/2",
     "signature": "not yet implemented",
@@ -17,8 +17,7 @@
     "priority": 100,
     "scenes": {
         "global_mod_list": [
-            "coui://ui/alpha/shared/js/inGameBrowser.js",
-            "coui://ui/alpha/shared/css/inGameBrowser.css"
+            "coui://ui/alpha/shared/js/inject.js"
         ]
     },
     "enabled": true

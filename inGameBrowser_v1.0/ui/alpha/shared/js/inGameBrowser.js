@@ -1,24 +1,26 @@
-var inGameBrowser = new inGameBrowser();
-inGameBrowser.navToPage(inGameBrowser.url);
 
-$(inGameBrowser.element + ' div').click(function(){
-	inGameBrowser.close();
-});
+	var inGameBrowser = new inGameBrowser();
+	inGameBrowser.navToPage(inGameBrowser.url);
 
-$(inGameBrowser.element + ' input[type="button"]').click(function(){
-	inGameBrowser.navToPage($(inGameBrowser.element + ' input[type="text"').val());
-});
+	$(inGameBrowser.element + ' div').click(function(){
+		inGameBrowser.close();
+	});
+
+	$(inGameBrowser.element + ' input[type="button"]').click(function(){
+		inGameBrowser.navToPage($(inGameBrowser.element + ' input[type="text"').val());
+	});
 
 
-/* Injecting buttons into Twitch stream list */
-//Overide twitch api
-window.api.twitch.launchTwitchPage = function(channel_name){
-	inGameBrowser.open("http://twitch.tv/" + channel_name);
-};
+	/* Injecting buttons into Twitch stream list */
+	//Overide twitch api
+	window.api.twitch.launchTwitchPage = function(channel_name){
+		inGameBrowser.open("http://twitch.tv/" + channel_name);
+	};
 
-/* Injectng Open In Game Browser Button */
-$('#version_info').append("<button class='btn_std' id='openInGameBrowser' onclick='inGameBrowser.open();'>Open In Game Browser</button>");
-$('#version_info').removeClass("ignoreMouse");
+	/* Injectng Open In Game Browser Button */
+	$('#version_info').append("<button class='btn_std' id='openInGameBrowser' onclick='inGameBrowser.open();'>Open In Game Browser</button>");
+	$('#version_info').removeClass("ignoreMouse");
+
 
 function inGameBrowser(){
 	var self = this;
