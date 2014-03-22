@@ -58,7 +58,7 @@
 	border-radius: 3px;
 }
 
-#openInGameBrowser{
+#version_info #openInGameBrowser{
 	display: none;
 	background: none;
 	color: white;
@@ -66,4 +66,11 @@
 
 #version_info:hover #openInGameBrowser{
 	display: inline-block;
+}
+
+
+#openInGameBrowserS{
+	position: absolute;
+	bottom: 10px;
+	right: 110px;
 }

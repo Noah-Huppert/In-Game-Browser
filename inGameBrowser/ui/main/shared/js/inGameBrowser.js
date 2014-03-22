@@ -18,8 +18,14 @@
 	};
 
 	/* Injectng Open In Game Browser Button */
-	$('#version_info').append("<button class='btn_std' id='openInGameBrowser' onclick='inGameBrowser.open();'>Open In Game Browser</button>");
-	$('#version_info').removeClass("ignoreMouse");
+	if($('#version_info').length != 0 && $('.div_pip_toggle_cont').length == 0){//Not in live game
+		$('#version_info').append("<button class='btn_std' id='openInGameBrowser' onclick='inGameBrowser.open();'>Open In Game Browser</button>");
+		$('#version_info').removeClass("ignoreMouse");
+	} else if($('.div_pip_toggle_cont').length != 0){//In live game
+		$('.div_pip_toggle_cont').before("<a href='#' id='openInGameBrowserS' onclick='inGameBrowser.open();'>Open In Game Browser</a>");
+	} else{//In Lobby
+		$('#game-bar').prepend("<button class='btn_std' id='openInGameBrowser' onclick='inGameBrowser.open();'>Open In Game Browser</button>");
+	}
 
 
 function inGameBrowser(){

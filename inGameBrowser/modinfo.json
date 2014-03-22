@@ -1,11 +1,11 @@
 {
     "context": "client",
     "identifier": "com.pa.someonewhoisnobody.inGameBrowser",
-    "display_name": "inGameBrowser",
+    "display_name": "In Game Browser",
     "description": "Adds an in game web browser",
     "author": "someonewhoisnobody",
-    "version": "1.1",
-    "build": "62168",
+    "version": "1.2",
+    "build": "63180",
     "date": "2014/3/2",
     "signature": "not yet implemented",
     "forum": "https://forums.uberent.com/threads/rel-in-game-browser-v1-0.57290/",
@@ -17,7 +17,7 @@
     "priority": 100,
     "scenes": {
         "global_mod_list": [
-            "coui://ui/alpha/shared/js/inject.js"
+            "coui://ui/main/shared/js/inject.js"
         ]
     },
     "enabled": true
