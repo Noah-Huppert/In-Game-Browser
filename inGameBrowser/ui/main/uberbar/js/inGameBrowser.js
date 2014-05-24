@@ -18,14 +18,18 @@
 	};
 
 	/* Injectng Open In Game Browser Button */
-	if($('#version_info').length != 0 && $('.div_pip_toggle_cont').length == 0){//Not in live game
+	if($('#version_info').length !== 0 && $('.div_pip_toggle_cont').length === 0){//Not in live game
 		$('#version_info').append("<button class='btn_std' id='openInGameBrowser' onclick='inGameBrowser.open();'>Open In Game Browser</button>");
 		$('#version_info').removeClass("ignoreMouse");
-	} else if($('.div_pip_toggle_cont').length != 0){//In live game
-		$('.div_pip_toggle_cont').before("<a href='#' id='openInGameBrowserS' onclick='inGameBrowser.open();'>Open In Game Browser</a>");
+		inGameBrowser.events.init({ "buttonType": "general"});
+	} else if($('.div_pip_toggle_cont').length !== 0){//In live game
+		$('.div_pip_toggle_cont').before("<a href='#' id='openInGameBrowserS' onclick='inGameBrowser.open();'><img src='coui://ui/main/shared/img/inGameBrowser_liveGameIcon.png'></a>");
+		inGameBrowser.events.init({ "buttonType": "live_game"});
 	} else{//In Lobby
 		$('#game-bar').prepend("<button class='btn_std' id='openInGameBrowser' onclick='inGameBrowser.open();'>Open In Game Browser</button>");
+		inGameBrowser.events.init({ "buttonType": "lobby"});
 	}
+
 
 
 function inGameBrowser(){
@@ -33,11 +37,19 @@ function inGameBrowser(){
 	self.element = "#inGameBrowser";
 	self.url = "http://www.uberent.com/";
 
+	self.events = {
+		init: function(data){},
+		navToPage: function(data){},
+		close: function(data){},
+		open: function(data){}
+	};
+
 	self.navToPage = function(navURL){
 		self.url = navURL;
 		$(self.element + " iframe").attr('src', self.url);
 		$(self.element + ' input[type="text"').val(self.url);
 		localStorage.inGameBrowser_url = self.url;
+		self.events.navToPage({ "url": navURL});
 	};
 
 	self.close = function(){
@@ -45,14 +57,17 @@ function inGameBrowser(){
 		localStorage.inGameBrowser_url = self.url;
 
 		$(self.element).hide();
-		$(self.element + ' iframe').remove()
+		$(self.element + ' iframe').remove();
+		self.events.close({});
 	};
 
 	self.open = function(navURL){
-		$(self.element + ' input[type="button"]').after('<iframe src=""></iframe>');
+		if($('#inGameBrowser iframe').length === 0){
+			$(self.element + ' input[type="button"]').after('<iframe src=""></iframe>');
+		}
 
 		$(self.element).show();
-		if(navURL != undefined){
+		if(navURL !== undefined){
 			self.navToPage(navURL);
 		}
 		$(self.element).show();
@@ -61,13 +76,14 @@ function inGameBrowser(){
 		self.url = localStorage.inGameBrowser_url;
 
 		self.navToPage(self.url);
+		self.events.open({"url": !!navURL ? navURL : ""});
 	};
 
 	/* Injecting Browser Into Page */
-	var injectCode = '' + 
-	'<div id="inGameBrowser" class="ui-dialog">' + 
-			'<div>X</div>' + 
-			'<input type="text"/>' + 
+	var injectCode = '' +
+	'<div id="inGameBrowser" class="ui-dialog">' +
+			'<div>X</div>' +
+			'<input type="text"/>' +
 			'<input type="button" value="Go"/>' +
 	'</div>';
 	$('body').prepend(injectCode);
@@ -78,15 +94,15 @@ function inGameBrowser(){
 
 	/* Setting, Settings */
 	//In Game Browser URL
-	if(localStorage.inGameBrowser_url != undefined){
+	if(localStorage.inGameBrowser_url !== undefined){
 		self.navToPage(localStorage.inGameBrowser_url);
 	} else{
 		self.navToPage(self.url);
 	}
 
 	//In Game Browser Open Setting
-	if(localStorage.inGameBrowser_open != undefined){
-		if(localStorage.inGameBrowser_open == true){
+	if(localStorage.inGameBrowser_open !== undefined){
+		if(localStorage.inGameBrowser_open === true){
 			self.open();
 		} else{
 			self.close();
@@ -98,8 +114,8 @@ function inGameBrowser(){
 }
 
 /* CHANGES MADE BY SOMEONEWHOISNOBODY */
-/* 
-ADDED IN inGameBrowser 
+/*
+ADDED IN inGameBrowser
 loadScript("coui://ui/alpha/shared/js/inGameBrowser.js");
 loadCSS("coui://ui/alpha/shared/css/inGameBrowser.css");
 */

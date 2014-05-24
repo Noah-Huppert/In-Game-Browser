@@ -1,0 +1,98 @@
+#inGameBrowser-Uberbar *{
+	display: inline-block;
+}
+
+#inGameBrowser-Uberbar{
+	background: #000000;
+}
+
+#inGameBrowser-Uberbar #inGameBrowser-NewTab{
+	height: 32px;
+	margin-left: 10px;
+	border: 1px #585858 solid;
+	border-radius: 1px;
+	background: #282828;
+	color: #FFFFFF;
+}
+
+#inGameBrowser-Uberbar #inGameBrowser-SessionsLabel{
+	color: #FFFFFF;
+	margin-right: 2px;
+	margin-left: 15px;
+	padding-right: 5px;
+	border-right: 1px #585858 solid;
+	font-size: 14px;
+}
+
+#inGameBrowser-Uberbar .inGameBrowser-Session{
+	margin-left: 10px;
+	padding: 3px;
+	padding-left: 6px;
+	border: 1px #585858 solid;
+	background: #282828;
+	color: #FFFFFF;
+}
+
+#inGameBrowser-Uberbar .inGameBrowser-Session[active="true"]{
+	background: #777777;
+}
+
+#inGameBrowser-Uberbar .inGameBrowser-SessionStateButton{
+	height: 100%;
+	width: 20px;
+	font-weight: italic;
+	text-align: center;
+	font-size: 14px;
+	font-family: serif;
+	border-radius: 2px;
+}
+
+#inGameBrowser-Uberbar .inGameBrowser-RemoveSession span{
+	-webkit-transform: rotate(45deg)
+}
+
+#inGameBrowser-Uberbar .inGameBrowser-SessionStateButton:hover{
+	background: #777777;
+}
+
+#inGameBrowser-Uberbar .inGameBrowser-Session[active="true"] .inGameBrowser-SessionStateButton:hover{
+	background: #282828;
+}
+
+#inGameBrowser-Uberbar .inGameBrowser-SessionName{
+	max-width: 100px;
+}
+
+
+.inGameBrowser-Browser{
+	width: 1000px;
+	height: 700px;
+	padding: 10px;
+	border: 1px #585858 solid;
+	background: #282828;
+}
+
+.inGameBrowser-BrowserTopBar{
+	margin-top: 5px;
+}
+
+.inGameBrowser-BrowserIframe{
+	width: 100%;
+	height: calc(100% - 60px);
+	margin-top: 10px;
+}
+
+.inGameBrowser-URLInput{
+	width: calc(100% - 50px);
+	height: 40px;
+	line-height: 40px;
+	font-size: 14px;
+}
+
+.inGameBrowser-URLGo{
+
+}
+
+.ui-resizable-handle{
+	//border: 1px solid #ffffff;
+}

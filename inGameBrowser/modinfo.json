@@ -4,20 +4,23 @@
     "display_name": "In Game Browser",
     "description": "Adds an in game web browser",
     "author": "someonewhoisnobody",
-    "version": "1.2",
-    "build": "63180",
-    "date": "2014/3/2",
+    "version": "2.0.0",
+    "build": "66516",
+    "date": "2014/5/23",
     "signature": "not yet implemented",
     "forum": "https://forums.uberent.com/threads/rel-in-game-browser-v1-0.57290/",
     "category": [
         "in-game",
-        "ui"
+        "ui",
+        "uberbar"
     ],
     "id": "inGameBrowser",
+    "icon": "http://i.imgur.com/V5fra1Y.jpg",
     "priority": 100,
     "scenes": {
-        "global_mod_list": [
-            "coui://ui/main/shared/js/inject.js"
+        "uberbar": [
+            "coui://ui/main/uberbar/js/inGameBrowser2.js",
+            "coui://ui/main/uberbar/css/inGameBrowser2.css"
         ]
     },
     "enabled": true

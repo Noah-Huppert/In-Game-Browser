@@ -1,0 +1,1164 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"e",
+				"exists"
+			],
+			[
+				"ne",
+				"newTournament"
+			],
+			[
+				"new",
+				"newTournamentsData"
+			],
+			[
+				"redi",
+				"redirect"
+			],
+			[
+				"ma",
+				"margin-right"
+			],
+			[
+				"tournae",
+				"tournaments"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"marg",
+				"margin-right"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"addtou",
+				"addTournamentPage"
+			],
+			[
+				"cus",
+				"custom"
+			],
+			[
+				"addTourna",
+				"addTournamentPage"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"margi",
+				"margin-bottom"
+			],
+			[
+				"margin",
+				"margin-left"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"padding",
+				"padding-bottom"
+			],
+			[
+				"tex",
+				"text-decoration"
+			],
+			[
+				"api",
+				"apiURL"
+			],
+			[
+				"onmouse",
+				"onmouseup	Attr"
+			],
+			[
+				"onk",
+				"onkeypress	Attr"
+			],
+			[
+				"i",
+				"italic"
+			],
+			[
+				"con",
+				"console"
+			],
+			[
+				"boe",
+				"border-radius"
+			],
+			[
+				"par",
+				"parsedUserData"
+			],
+			[
+				"tour",
+				"tournament"
+			],
+			[
+				"tournam",
+				"tournament"
+			],
+			[
+				"tourn",
+				"tournament"
+			],
+			[
+				"tou",
+				"tournamentsData"
+			],
+			[
+				"hb",
+				"hbHelpers"
+			],
+			[
+				"pro",
+				"profile"
+			],
+			[
+				"req",
+				"require"
+			],
+			[
+				"Mon",
+				"MongoStoreConf"
+			],
+			[
+				"ex",
+				"express"
+			],
+			[
+				"re",
+				"require"
+			],
+			[
+				"log",
+				"logout"
+			],
+			[
+				"col",
+				"collectionName"
+			],
+			[
+				"pr",
+				"profile"
+			],
+			[
+				"red",
+				"redirects"
+			],
+			[
+				"auth",
+				"authenticate"
+			],
+			[
+				"go",
+				"googleStrat"
+			],
+			[
+				"url",
+				"urlParts"
+			],
+			[
+				"ur",
+				"urlParts"
+			],
+			[
+				"de",
+				"detailedVars"
+			],
+			[
+				"render",
+				"renderPage"
+			],
+			[
+				"rend",
+				"renderPage"
+			],
+			[
+				"use",
+				"useDB"
+			],
+			[
+				"mon",
+				"MongoDB"
+			],
+			[
+				"paddin",
+				"padding-bottom"
+			],
+			[
+				"margon",
+				"margin-top"
+			],
+			[
+				"te",
+				"text-align"
+			],
+			[
+				"exp",
+				"expiresIn"
+			],
+			[
+				"id",
+				"identifier"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"bor",
+				"border-radius"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"get",
+				"getPubKey"
+			],
+			[
+				"this",
+				"thisData"
+			],
+			[
+				"be",
+				"behavior"
+			],
+			[
+				"p",
+				"pageTop"
+			],
+			[
+				"page",
+				"pageTop"
+			],
+			[
+				"stop",
+				"stopPage"
+			],
+			[
+				"st",
+				"stopPage"
+			],
+			[
+				"exhb",
+				"exhbHelpers"
+			],
+			[
+				"site",
+				"siteData"
+			],
+			[
+				"ren",
+				"renderPage"
+			],
+			[
+				"menu",
+				"menus"
+			],
+			[
+				"cool",
+				"collection"
+			],
+			[
+				"coo",
+				"collection"
+			],
+			[
+				"redner",
+				"renderPage"
+			],
+			[
+				"on",
+				"onGetDBData"
+			],
+			[
+				"backo",
+				"background"
+			],
+			[
+				"sc",
+				"scrollTop"
+			],
+			[
+				"titl",
+				"titlePage"
+			],
+			[
+				"min-",
+				"min-height"
+			],
+			[
+				"fn",
+				"font-style"
+			],
+			[
+				"background-",
+				"background-size"
+			],
+			[
+				"pag",
+				"pageProgress"
+			],
+			[
+				"ps",
+				"pageProgress"
+			],
+			[
+				"scr",
+				"scrollTop"
+			],
+			[
+				"scro",
+				"scrollAction"
+			],
+			[
+				"fot",
+				"font-size"
+			],
+			[
+				"fon-s",
+				"font-size"
+			],
+			[
+				"fi",
+				"font-weight"
+			],
+			[
+				"open",
+				"openpgp"
+			],
+			[
+				"pub",
+				"pubKey"
+			],
+			[
+				"pu",
+				"pubKey"
+			],
+			[
+				"pubKe",
+				"pubKeyString"
+			],
+			[
+				"paddi",
+				"padding-left"
+			],
+			[
+				"padd",
+				"padding-left"
+			],
+			[
+				"ab",
+				"absolute"
+			],
+			[
+				"max",
+				"max-height"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"Authr",
+				"Authorization"
+			],
+			[
+				"dis",
+				"displayMessage"
+			],
+			[
+				"un",
+				"username"
+			],
+			[
+				"user",
+				"usersName"
+			],
+			[
+				"onA",
+				"onAuthReq"
+			],
+			[
+				"onRe",
+				"onReconnectFailed"
+			],
+			[
+				"Reco",
+				"reconnecting"
+			],
+			[
+				"onC",
+				"onConnectFailed"
+			],
+			[
+				"onConnec",
+				"onConnecting"
+			],
+			[
+				"onRec",
+				"onReconnecting"
+			],
+			[
+				"onconnec",
+				"onConnectFailed"
+			],
+			[
+				"n",
+				"nowrap"
+			],
+			[
+				"bl",
+				"inline-block"
+			],
+			[
+				"hand",
+				"handleClientLoad"
+			],
+			[
+				"scop",
+				"scopes"
+			],
+			[
+				"client",
+				"clientId"
+			],
+			[
+				"nav",
+				"navToPage"
+			],
+			[
+				"ine",
+				"inline-block"
+			],
+			[
+				"cli",
+				"clientId"
+			],
+			[
+				"ap",
+				"apiKey"
+			],
+			[
+				"statu",
+				"status"
+			],
+			[
+				"task_",
+				"task_summary"
+			],
+			[
+				"ten",
+				"text-align"
+			],
+			[
+				"cur",
+				"currentTaskID"
+			],
+			[
+				"curr",
+				"currentTaskSummary"
+			],
+			[
+				"task",
+				"taskSummary"
+			],
+			[
+				"getS",
+				"getSummary"
+			],
+			[
+				"border-left-r",
+				"border-top-left-radius"
+			],
+			[
+				"stat",
+				"status"
+			],
+			[
+				"inject",
+				"injectInlineStatus"
+			],
+			[
+				"store",
+				"storeVal"
+			],
+			[
+				"injec",
+				"injectInlineStatus"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "server.js",
+			"settings":
+			{
+				"buffer_size": 9741,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "views/index.handlebars",
+			"settings":
+			{
+				"buffer_size": 358,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "views/addTournament.handlebars",
+			"settings":
+			{
+				"buffer_size": 641,
+				"line_ending": "Windows",
+				"name": "Add Tournament"
+			}
+		},
+		{
+			"file": "views/updateTournament.handlebars",
+			"settings":
+			{
+				"buffer_size": 6,
+				"line_ending": "Windows",
+				"name": "update"
+			}
+		},
+		{
+			"file": "public/js/javascript.js",
+			"settings":
+			{
+				"buffer_size": 2281,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "views/partials/styles.handlebars",
+			"settings":
+			{
+				"buffer_size": 6981,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/Ruby/Ruby.sublime-build",
+	"command_palette":
+	{
+		"height": 311.0,
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"dsf",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Noah/Noah/Programing/PA/PA-Tournaments/pa-tournaments/views/404.handlebars",
+		"/C/Users/Noah/Noah/Programing/PA/PA-Tournaments/pa-tournaments/views/api.handlebars",
+		"/C/Users/Noah/Noah/Programing/PA/PA-Tournaments/pa-tournaments/views/layouts/api.handlebars",
+		"/C/Users/Noah/Noah/Programing/PA/PA-Tournaments/pa-tournaments/views/partials/header.handlebars",
+		"/C/Users/Noah/Noah/Programing/PA/PA-Tournaments/pa-tournaments/package.json",
+		"/C/Users/Noah/Noah/Programing/PA/PA-Tournaments/pa-tournaments/views/layouts/raw.handlebars",
+		"/C/Users/Noah/Noah/Programing/HTML/LSRHS Robotics Website/lsrhs/server.js",
+		"/C/Users/Noah/Noah/Programing/PA/PA-Tournaments/pa-tournaments/views/tournament.handlebars",
+		"/C/Users/Noah/Noah/Programing/PA/PA-Tournaments/pa-tournaments/views/index.handlebars",
+		"/C/Users/Noah/Noah/Programing/PA/PA-Tournaments/pa-tournaments/views/profile.handlebars",
+		"/C/Users/Noah/Noah/Programing/PA/Bug Swatter/client/main.js",
+		"/C/Users/Noah/Noah/Programing/PA/PA-Tournaments/pa-tournaments/public/js/javascript.js",
+		"/C/Users/Noah/Noah/Programing/PA/PA-Tournaments/pa-tournaments/views/auth/return.handlebars",
+		"/C/Users/Noah/Noah/Programing/PA/PA-Tournaments/pa-tournaments/views/logout.handlebars",
+		"/C/Users/Noah/Downloads/id (1)",
+		"/C/Users/Noah/Downloads/id",
+		"/C/Users/Noah/Noah/Programing/PA/PA-Tournaments/pa-tournaments/pa-tournaments.sublime-project",
+		"/C/Users/Noah/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Noah/Noah/Programing/PA/PA-Tournaments/pa-tournaments/views/partials/styles.handlebars",
+		"/C/Users/Noah/Noah/Programing/PA/PA-Tournaments/pa-tournaments/views/partials/footer.handlebars",
+		"/C/Users/Noah/Noah/Programing/PA/PA-Tournaments/pa-tournaments/public/css/fonts.css",
+		"/C/Users/Noah/Noah/Programing/PA/PA-Tournaments/pa-tournaments/public/css/styles.css",
+		"/C/Users/Noah/Noah/Programing/PA/PA-Tournaments/pa-tournaments/server.js",
+		"/C/Users/Noah/Noah/Programing/PA/PA-Tournaments/package.json",
+		"/C/Users/Noah/Noah/Programing/PA/PA-Tournaments/server.js",
+		"/C/Users/Noah/Noah/Programing/PA/PA-Tournaments/Procfile",
+		"/C/Users/Noah/Noah/Programing/HTML/LSRHS Robotics Website/lsrhs/package.json",
+		"/C/Users/Noah/Desktop/welmac/index.php",
+		"/C/Users/Noah/Noah/Programing/HTML/LSRHS Robotics Website/lsrhs/public/css/styles.css",
+		"/C/Users/Noah/Noah/Programing/HTML/LSRHS Robotics Website/lsrhs/views/layouts/main.handlebars",
+		"/C/Users/Noah/Noah/Programing/HTML/LSRHS Robotics Website/lsrhs/views/index.handlebars",
+		"/C/Users/Noah/Noah/Programing/HTML/LSRHS Robotics Website/lsrhs/public/js/javascript.js",
+		"/C/Users/Noah/Noah/Programing/HTML/LSRHS Robotics Website/lsrhs/views/partials/footer.handlebars",
+		"/C/Users/Noah/Noah/Programing/HTML/LSRHS Robotics Website/lsrhs/pages.json",
+		"/C/Users/Noah/Noah/Programing/HTML/LSRHS Robotics Website/lsrhs/views/partials/header.handlebars",
+		"/C/Users/Noah/Noah/Programing/HTML/LSRHS Robotics Website/lsrhs/site.json",
+		"/C/Users/Noah/Noah/Programing/HTML/LSRHS Robotics Website/lsrhs/public/js/javascript.ks",
+		"/C/Users/Noah/Noah/Programing/HTML/LSRHS Robotics Website/lsrhs/views/errors/404.handlebars",
+		"/C/Users/Noah/Noah/Programing/HTML/LSRHS Robotics Website/lsrhs/data.json",
+		"/C/Users/Noah/Noah/Programing/HTML/LSRHS Robotics Website/lsrhs/views/about/team.handlebars",
+		"/C/Users/Noah/Noah/Programing/HTML/LSRHS Robotics Website/lsrhs/npm-debug.log",
+		"/C/Users/Noah/Noah/Programing/HTML/LSRHS Robotics Website/lsrhs/Procfile",
+		"/C/Users/Noah/Noah/Programing/HTML/LSRHS Robotics Website/lsrhs/content/themes/parallax/default.hbs",
+		"/C/Users/Noah/Noah/Programing/HTML/LSRHS Robotics Website/lsrhs/config.js",
+		"/C/Users/Noah/Noah/Programing/HTML/LSRHS Robotics Website/lsrhs/content/themes/paralax/package.json",
+		"/C/Users/Noah/Noah/Programing/HTML/LSRHS Robotics Website/lsrhs/public/index.html",
+		"/C/Users/Noah/Noah/Programing/HTML/LSRHS Robotics Website/lsrhs/ghost/package.json",
+		"/C/Users/Noah/Noah/Programing/HTML/mobile-menu/Dropdown-Menus/css/styles.css",
+		"/C/Users/Noah/Noah/Programing/HTML/LSRHS Robotics Website/lsrhs/nodemon.bat",
+		"/C/Users/Noah/Noah/Programing/PA/Bug Swatter/server/bug-swatter/PGP/private.txt",
+		"/C/Users/Noah/Noah/Programing/PA/Bug Swatter/server/bug-swatter/PGP/public.txt",
+		"/C/Users/Noah/private.key",
+		"/C/Users/Noah/Noah/Programing/HTML/mobile-menu/js/mobile-menu.js",
+		"/C/Users/Noah/Noah/Programing/HTML/mobile-menu/demo.html",
+		"/C/Users/Noah/Noah/Programing/HTML/mobile-menu/css/styles.css",
+		"/C/Users/Noah/Noah/Programing/HTML/Too-Much-Daylight.github.io/index.html",
+		"/C/Users/Noah/Noah/Programing/PA/Bug Swatter/client/live/live.js",
+		"/C/Users/Noah/Noah/Programing/PA/Bug Swatter/server/bug-swatter/package.json",
+		"/C/Program Files (x86)/GNU/GnuPG/share/gpg4win/README.en.txt",
+		"/C/Users/Noah/Noah/Programing/PA/Bug Swatter/server/bug-swatter/server.js",
+		"/C/Users/Noah/key.txt",
+		"/C/Users/Noah/Noah/Programing/PA/Bug Swatter/client/manifest.json",
+		"/C/Users/Noah/Noah/Programing/PA/Bug Swatter/README.md",
+		"/C/Users/Noah/Noah/Programing/PA/Bug Swatter/server/nodemon.bat",
+		"/C/Users/Noah/Noah/Programing/PA/Bug Swatter/server/bug-swatter/debug.bat",
+		"/C/Users/Noah/Noah/Programing/PA/Bug Swatter/server/bug-swatter/Procfile",
+		"/C/Users/Noah/AppData/Roaming/npm/node-inspector.cmd",
+		"/C/Users/Noah/Noah/Programing/PA/Bug Swatter/.git/config",
+		"/C/Users/Noah/Noah/Programing/PA/Bug Swatter/.git/description",
+		"/C/Users/Noah/Noah/Programing/PA/Bug Swatter/.git/logs/HEAD",
+		"/C/Users/Noah/Noah/Programing/PA/Bug Swatter/.git/HEAD",
+		"/C/Users/Noah/Noah/Programing/PA/Bug Swatter/.git/index",
+		"/C/Users/Noah/Noah/Programing/PA/Bug Swatter/.git/ORIG_HEAD",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/live/live.js",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/main.js",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/server/bug-swatter/server.js",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/server.js",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/server/bug-swatter/public/index.html",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/server/server.js",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/server/public/index.html",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/client/live/live.js",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/client/main.js",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/server/bug-swatter/package.json",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/client/manifest.json",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/server/bug-swatter/public/css/styles.css",
+		"/C/Users/Noah/Noah/Programing/HTML/cau-ses.net 2/css/headerFooter.scss",
+		"/C/Users/Noah/Noah/Programing/HTML/cau-ses.net 2/_includes/header.html",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/server/bug-swatter/index.html",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/server/bug-swatter/css/styles.css",
+		"/C/Users/Noah/Noah/Programing/HTML/Blog 4/index.php",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/server/bug-swatter/Procfile",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/server/heroku sample/node-js-sample/package.json",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/server/bug-swatter/main.js",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/server/bug-swatter/.gitignore",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/manifest.json",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/whipitvm.piw.txt",
+		"/C/Users/Noah/AppData/Local/Uber Entertainment/Planetary Annihilation/mods/inGameBrowser/modinfo.json",
+		"/C/Users/Noah/AppData/Local/Uber Entertainment/Planetary Annihilation/mods/cPAStatsCharts/ui/mods/cPAStatsCharts/cPAStatsCharts.js",
+		"/C/Users/Noah/AppData/Local/Uber Entertainment/Planetary Annihilation/mods/inGameBrowser/ui/main/shared/js/inGameBrowser.js",
+		"/C/Users/Noah/Noah/Programing/PA/pamods.github.io/modlist.json",
+		"/C/Users/Noah/Noah/Programing/PA/pamods.github.io/news.html",
+		"/C/Users/Noah/Noah/Programing/PA/pamods.github.io/user_mods/cPAStatsCharts_v1.1.1/cPAStatsCharts/modinfo.json",
+		"/C/Users/Noah/Noah/Programing/PA/pamods.github.io/user_mods/cPAStatsCharts_v1.1.1.zip",
+		"/C/Users/Noah/AppData/Local/Temp/Temp1_pa_stats_online.zip/pa_stats_online/modinfo.json",
+		"/C/Users/Noah/AppData/Local/Uber Entertainment/Planetary Annihilation/mods/inGameBrowser/ui/main/shared/css/inGameBrowser.css",
+		"/C/Users/Noah/Noah/Programing/PA/In-Game-Browser/inGameBrowser/modinfo.json",
+		"/C/Users/Noah/AppData/Local/Temp/Temp1_inGameBrowser_v1.2.zip/inGameBrowser/modinfo.json",
+		"/C/Users/Noah/AppData/Local/Temp/Temp1_BuildPower_v1.1.2.zip/BuildPower/modinfo.json",
+		"/C/Users/Noah/AppData/Local/Temp/Temp1_bEfficiencyBoxFix_v1.0.zip/bEfficiencyBoxFix/modinfo.json",
+		"/C/Users/Noah/AppData/Local/Temp/Temp1_pa_strat_build_icons_v1.zip/pa_strat_build_icons/modinfo.json",
+		"/C/Users/Noah/AppData/Local/Uber Entertainment/Planetary Annihilation/mods/inGameBrowser/ui/main/shared/js/inject.js",
+		"/C/Users/Noah/AppData/Local/Uber Entertainment/Planetary Annihilation/mods/inGameBrowser/ui/main/game/shared/js/inject.js",
+		"/C/Users/Noah/AppData/Local/Uber Entertainment/Planetary Annihilation/mods/inGameBrowser/ui/main/game/shared/css/inGameBrowser.css",
+		"/C/Users/Noah/AppData/Local/Uber Entertainment/Planetary Annihilation/mods/inGameBrowser/ui/main/game/shared/js/inGameBrowser.js",
+		"/C/Users/Noah/AppData/Local/Uber Entertainment/Planetary Annihilation/mods/inGameBrowser/ui/alpha/shared/js/inGameBrowser.js",
+		"/C/Users/Noah/AppData/Local/Uber Entertainment/Planetary Annihilation/mods/inGameBrowser/ui/alpha/shared/css/inGameBrowser.css",
+		"/C/Program Files (x86)/Planetary Annihilation/PA/media/ui/alpha/shared/js/api/holodeck.js",
+		"/C/Program Files (x86)/Planetary Annihilation/PA/media/ui/alpha/live_game/live_game.js",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/main.css",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/popup/popup.html",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/popup/popup.css",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/popup/popup.js",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/glyphicons.css",
+		"/C/Users/Noah/Noah/Programing/HTML/Bug Swatter/live/live.css",
+		"/C/Users/Noah/Noah/Programing/PA/In-Game-Browser/inGameBrowser_v1.0/modinfo.json",
+		"/C/Users/Noah/Noah/Programing/HTML/cau-ses.net 2/Blog/index.html",
+		"/C/Users/Noah/Noah/Programing/HTML/cau-ses.net 2/index.html",
+		"/C/Program Files (x86)/Planetary Annihilation/PA/media/ui/alpha/start/start.js"
+	],
+	"find":
+	{
+		"height": 46.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\Program Files (x86)\\Planetary Annihilation\\PA\\media\\ui\\alpha",
+			"C:\\Users\\Noah\\Noah\\Programing\\HTML\\Bug Swatter",
+			"C:\\Program Files (x86)\\Planetary Annihilation\\PA\\media\\ui\\alpha",
+			"C:\\Program Files (x86)\\Planetary Annihilation\\PA\\media",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			";\n",
+			"apiFrame",
+			"urlParts",
+			"url",
+			"JSON",
+			"hb",
+			"console",
+			"userData",
+			"req.user",
+			"version",
+			"auth/google",
+			"html",
+			"considered",
+			"..",
+			"url",
+			"img",
+			"com",
+			"collection",
+			"provider",
+			"console",
+			"();\n",
+			";\n",
+			"z-index",
+			"../",
+			");\n",
+			"');\n",
+			"http://my-ghost-blog.com/",
+			"host",
+			"npm",
+			"host",
+			");\n",
+			"());",
+			"5",
+			"e74c3c",
+			"\n.",
+			"usage",
+			"users",
+			"--------------------------------------------------\")",
+			"alow",
+			");\n",
+			"inGame",
+			"Strategic build Icons",
+			"icons",
+			"inGame",
+			"item",
+			"unit.build",
+			"build",
+			"getSelectOption",
+			"selectAt",
+			"()'></",
+			"setTask",
+			"addTask",
+			"add",
+			"new task",
+			"bs.alert(\"Error setting task, task ID not set\", \"bs.db.setTask\");",
+			"self.set(key, value);\n",
+			"function(key, value)",
+			"function(key, value){self.set(key, value);} ",
+			"function(key, value){\n			self.set(key, value);\n		} ",
+			"function (key, value){\n			self.set(key, value);\n		} ",
+			"bs.alert",
+			"style: function (){return { background:!!db.data()[db.tasksName()]()[db.",
+			"skByID(2595)] ? db.data()[db.tasksName",
+			"style: function (){return { background:!!db.data()[db.tasksName()]()[db.findTaskByID(2595)] ? db.data()[db.tasksName",
+			"style: function (){return { background:!!db.data()[db.tasksName()]()[db.findTaskByID(2595)] ? db.data()[db.tasksName()]()[db.findTaskByID(2595)].getStatus().getColor():\"#FFFFFF\"} }",
+			"bs.alert(",
+			"status",
+			"statusID",
+			"id",
+			"dump",
+			"status",
+			"id",
+			"id'",
+			"id",
+			"removeTask",
+			"removeTasl",
+			"applyBindings",
+			"gear",
+			"log",
+			"gear",
+			"bs.alert(",
+			"updateDetailedStatus",
+			"updateInlineStatus",
+			"task",
+			"bs.a",
+			"applyBindings",
+			"bs.db.setTask",
+			"bs.events.tasks.onSet",
+			"bd",
+			"[sName]",
+			"bs.db.statusesName",
+			"bs.db.tasksName",
+			"eac",
+			"bs.db.data",
+			"});\n",
+			"foreach",
+			"data-bind",
+			"ko",
+			"){\n",
+			"		\n",
+			"updateTasks",
+			"getDBData",
+			"dbData",
+			"data",
+			"?",
+			"bs.alert",
+			"console",
+			"(){\n",
+			"console",
+			"50",
+			"localStorage",
+			"open",
+			"ko",
+			"eco",
+			"queue",
+			"holodeckModeMouseDown",
+			"holodeckModeMouseDown.fab",
+			"queue",
+			"targetCommand",
+			":",
+			"btn_lrg_std",
+			"one-",
+			"ready",
+			"script",
+			"importScript",
+			"addJS",
+			"add",
+			"addScript"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"-"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "server.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9741,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1453,
+								1186
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 285.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "views/index.handlebars",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 358,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								358,
+								358
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "views/addTournament.handlebars",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 641,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								82,
+								82
+							]
+						],
+						"settings":
+						{
+							"auto_name": "Add Tournament",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "views/updateTournament.handlebars",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6,
+								6
+							]
+						],
+						"settings":
+						{
+							"auto_name": "update",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "public/js/javascript.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2281,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								607,
+								607
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "views/partials/styles.handlebars",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6981,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1413,
+								1387
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 990.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "pa-tournaments.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 238.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

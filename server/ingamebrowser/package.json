@@ -1,0 +1,29 @@
+{
+  "name": "In-Game-Browser",
+  "version": "0.0.1",
+  "description": "A proxy for getting website content",
+  "author": "Noah Huppert",
+  "keywords": [
+        "PA"
+    ],
+    "main": "server.js",
+  "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+      "express": "~3.4.x",
+      "request": "latest",
+      "node-codein": "x.x.x",
+      "cheerio": "latest"
+  },
+  "engines": {
+    "node": "0.10.x",
+      "npm": "1.3.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@heroku.com:lsrhs.git"
+  },
+  "author": "Noah Huppert",
+  "license": "MIT"
+}

@@ -1,4 +1,10 @@
 #################
+## SOMEONEWHOISNOBODY
+#################
+./server/ingamebrowser/node_modules/**/**
+
+
+#################
 ## Eclipse
 #################
 

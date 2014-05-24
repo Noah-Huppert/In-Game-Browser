@@ -1,0 +1,11 @@
+<div class="inGameBrowser-Browser" data-bind="attr: { id: 'inGameBrowser-' + id() }">
+	<div class="inGameBrowser-BrowserTopBar">
+		<form>
+			<input class="inGameBrowser-URLInput" type='text' data-bind="value: url()">
+
+			<input class="inGameBrowser-URLGo" value="Go" type="submit" data-bind="click: function(){ setURL($('.inGameBrowser-URLInput').val()); }"/>
+		</form>
+	</div>
+
+		<iframe seamless="true" class='inGameBrowser-BrowserIframe' data-bind="attr: { src: url }"></iframe>
+</div>

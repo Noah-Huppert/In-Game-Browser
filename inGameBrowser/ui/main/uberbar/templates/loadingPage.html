@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+
+	<head>
+		<title>Loading...</title>
+		<link href='http://fonts.googleapis.com/css?family=Knewave|Oswald' rel='stylesheet' type='text/css'>
+
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+		<style>
+			html{
+				background: #66CEFF;
+			}
+
+			#inGameBrowser-LoadingPage-Loading{
+				width: 100%;
+				height: 88px;
+				margin-top: calc(25% - 44px);
+				font-family: 'Knewave', 'cursive';
+				color: #FFFFFF;
+				font-size: 56px;
+				text-align: center;
+				display: inline-block;
+			}
+
+			#inGameBrowser-LoadingPage-Warning{
+				width: 100%;
+				height: 66px;
+				margin-top: calc(25% - 33px);
+				font-family: 'Oswald', 'sans-serif';
+				color: #FFFFFF;
+				font-size: 34px;
+				text-align: center;
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<span id="inGameBrowser-LoadingPage-Loading"></span>
+
+		<div id="inGameBrowser-LoadingPage-Warning">
+			There was an error loading the page
+		</div>
+
+		<script>
+			$(document).ready(function(){
+
+				function doText(string, selector){
+					var stringSplit = string.split('');
+					stringSplit.unshift('');
+
+					var progress = $(selector).text().length;
+
+					if(progress == stringSplit.length - 1){
+						$(selector).text(stringSplit[1]);
+					} else{
+						$(selector).text($(selector).text() + stringSplit[progress + 1]);
+					}
+				}
+
+				var interval = setInterval(function(){
+					doText('Loading...', '#inGameBrowser-LoadingPage-Loading');
+				}, 500);
+
+				setTimeout(function(){
+					clearInterval(interval);
+					$('#inGameBrowser-LoadingPage-Loading').hide();
+					$('#inGameBrowser-LoadingPage-Warning').show();
+				}, 20000);
+			});
+		</script>
+	</body>
+
+</html>

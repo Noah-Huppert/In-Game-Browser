@@ -1,0 +1,13 @@
+<div id="inGameBrowser-Uberbar">
+	<button id="inGameBrowser-NewTab" data-bind="click: function(){ addSession('title', 'http://www.noahhuppert.com'); }">New Tab <span style="font-weight: bolder; font-family: serif;">+</span></button>
+
+	<div id="inGameBrowser-SessionsLabel" data-bind="visible: (sessions().length != 0)">Tabs</div>
+
+	<div id="inGameBrowser-Sessions" data-bind="foreach: sessions">
+		<div class="inGameBrowser-Session" data-bind="attr: { active: active }">
+			<span class="inGameBrowser-SessionName" data-bind="text: title, click: function(){ $parent.openSession(id()) }"></span>
+			<span class="inGameBrowser-MinimizeSession inGameBrowser-SessionStateButton" data-bind="click: function(){ $parent.minimizeSession(id()) }">-</span>
+			<span class="inGameBrowser-RemoveSession inGameBrowser-SessionStateButton" data-bind="click: function(){ $parent.closeSession(id()) }"><span>+</span></span>
+		</div>
+	</div>
+</div>
