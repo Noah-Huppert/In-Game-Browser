@@ -21,6 +21,9 @@
         "uberbar": [
             "coui://ui/main/uberbar/js/inGameBrowser2.js",
             "coui://ui/main/uberbar/css/inGameBrowser2.css"
+        ],
+        "main": [
+          "coui://ui/main/inGameBrowser.js"
         ]
     },
     "enabled": true

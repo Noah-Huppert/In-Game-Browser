@@ -7,6 +7,20 @@ if(inGameBrowser !== undefined){//Only one in game browser
 	var inGameBrowserDB = new inGameBrowserDB();
 	var inGameBrowserDataManager = new inGameBrowserDataManager(inGameBrowser, inGameBrowserDB);
 	inGameBrowser.injectUberbarUI();
+
+	var inGameBrowserEngineQueueHandler = new inGameBrowserEngineQueueHandler(inGameBrowserDB);
+	var inGameBrowserEngine = new inGameBrowserEngine(inGameBrowser, inGameBrowserEngineQueueHandler);
+
+	var inGameBrowserEngineClient = new inGameBrowserEngineClient(inGameBrowserDB, inGameBrowserEngineQueueHandler);
+	inGameBrowserEngineClient.call("test", {}, function(name, payload){
+		console.log("outside", name, payload);
+	});
+
+	//Override in game twitch link - NEED TO OVERRIDE THIS WHEN inGameBrowserEngine STRUCTURE IS DONE
+	window.api.twitch.launchTwitchPage = function(channel_name){
+		console.log(channel_name);
+		inGameBrowser.addSession("Twitch TV", "http://twitch.tv/" + channel_name);
+	};
 }
 
 
@@ -282,6 +296,8 @@ function inGameBrowserDB(){
 	self.constant = {};
 
 	self.constant.sessions = "inGameBrowser-sessions";
+	self.constant.engineCallQueue = "inGameBrowser-EngineCallQueue";
+	self.constant.engineResponseQueue = "inGameBrowser-EngineResponseQueue";
 
 	self.open = function(dbName, cb){
     var version = 1;
@@ -321,6 +337,7 @@ function inGameBrowserDB(){
 		var db = self.db[sName];
 		var transaction = db.transaction([sName], "readwrite");
 		var store = transaction.objectStore(sName);
+
 		var request = store.put(sData.getDump());
 
 		request.onsuccess = function(e){
@@ -414,13 +431,22 @@ function inGameBrowserDB(){
 						return;
 					}
 
-					if(dbName === self.constant.sessions){
+					if(dbName === self.constant.sessions){//Getting Sessions
 						var session = result.value;
 						var newSession = new inGameBrowserSession(session.title, session.url, session.id);
 						newSession.setActive(session.active);
 						newSession.setPosition(session.position);
 						newSession.setDimensions(session.dimensions);
 						dbStoreVar.push(newSession);
+					} else if(dbName === self.constant.engineCallQueue){//Getting Engine Calls
+						var call = result.value;
+						var engineCall = new inGameBrowserEngineCall(call.name, call.payload);
+						engineCall.setId(call.id);
+						dbStoreVar.push(engineCall);
+					} else if(dbName === self.constant.engineResponseQueue){//Getting Engine Responses
+						var response = result.value;
+						var engineResponse = new inGameBrowserEngineResponse(response.name, response.payload, response.id);
+						dbStoreVar.push(engineResponse);
 					} else{
 						dbStoreVar.push(result.value);
 					}
@@ -491,6 +517,350 @@ function inGameBrowserDataManager(inGameBrowser, db){
 	getPrevSessionData();
 	self.inGameBrowser.events.dataChange = setData;
 }
+
+
+function inGameBrowserEngineQueueHandler(db){
+	var self = this;
+
+	self.db = db;
+
+	self.callQueueName = self.db.getConstant("engineCallQueue");
+	self.responseQueueName = self.db.getConstant("engineResponseQueue");
+	self.checkQueueInterval = 100;
+
+	self.events = {
+		"onCall": function(name, payload, asyncInterval){ asyncInterval.done(); },
+		"onResponse": function(name, payload, asyncInterval){ asyncInterval.done(); }
+	};
+
+	self.openCallQueue = function(){
+		self.db.open(self.callQueueName, function(err){
+			if(err) throw err;
+
+			self.openResponseQueue();
+		});
+	};
+
+	self.openResponseQueue = function(){
+		self.db.open(self.responseQueueName, function(err){
+			if(err) throw err;
+
+			self.startCheckQueue();
+		});
+	};
+
+	self.startCheckQueue = function(){
+		var handleCallQueueInterval = new asyncInterval();
+		handleCallQueueInterval.start(self.handleCallQueue, self.checkQueueInterval);
+
+		var handleResponseQueueInterval = new asyncInterval();
+		handleResponseQueueInterval.start(self.handleResponseQueue, self.checkQueueInterval);
+	};
+
+	self.handleCallQueue = function(asyncInterval){
+		self.getQueue(self.callQueueName, asyncInterval, self.events.onCall);
+	};
+
+	self.handleResponseQueue = function(asyncInterval){
+		self.getQueue(self.responseQueueName, asyncInterval, self.events.onResponse);
+	};
+
+	self.getQueue = function(dbName, asyncInterval, perItem){
+		self.db.getDBData(dbName, function(err){
+
+			var queue = self.db.data[dbName];
+
+			if(queue.length !== 0){
+				var currentItem = queue[0];
+				self.db.remove(dbName, currentItem, function(err){
+					if(err) throw err;
+
+					var name = !!currentItem.name ? currentItem.name : "";
+					var payload = !!currentItem.payload ? currentItem.payload : {};
+
+					perItem(name, payload, asyncInterval);
+				});
+			} else{
+				asyncInterval.done();
+			}
+		});
+	};
+
+	self.openCallQueue();
+}
+
+function inGameBrowserEngine(inGameBrowser, inGameBrowserEngineQueueHandler){
+	var self = this;
+
+	self.inGameBrowser = inGameBrowser;
+	self.engineQueueHandler = inGameBrowserEngineQueueHandler;
+	self.db = self.engineQueueHandler.db;
+
+	self.responseQueueName = self.db.getConstant("engineResponseQueue");
+
+	self.openRespondQueue = function(cb){
+		self.db.open(self.responseQueueName, function(err){
+			if(err) throw err;
+
+			if(!!cb) cb();
+		});
+	};
+
+	self.respond = function(id, name, payload, cb){
+		if(!!self.db.data[self.callQueueName]){
+			doRespond();
+		} else{
+			self.openRespondQueue(doRespond);
+		}
+
+		function doRespond(){
+			var engineResponse = new inGameBrowserEngineResponse(name, payload, id);
+
+			self.db.add(self.responseQueueName, engineResponse, function(err){
+				if(err) throw err;
+
+				if(!!cb) cb();
+			});
+		}
+	};
+
+	self.engineQueueHandler.events.onCall = function(name, payload, asyncInterval){
+		console.log("onCall", name, payload);
+		if(!!payload.id){
+			self.respond(payload.id, name, payload);
+		}
+
+		asyncInterval.done();
+	};
+}
+
+function inGameBrowserEngineClient(db, inGameBrowserEngineQueueHandler){
+	var self = this;
+
+	self.db = db;
+	self.engineQueueHandler = inGameBrowserEngineQueueHandler;
+	self.callQueueName = self.db.getConstant("engineCallQueue");
+
+	self.queueCallbacks = {};
+
+	self.openCallQueue = function(cb){
+		self.db.open(self.callQueueName, function(err){
+			if(err) throw err;
+
+			if(!!cb) cb();
+		});
+	};
+
+	self.call = function(name, payload, cb){
+		if(!!self.db.data[self.callQueueName]){
+			doCall();
+		} else{
+			self.openCallQueue(doCall);
+		}
+
+		function doCall(){
+			var engineCall = new inGameBrowserEngineCall(name, payload);
+
+			self.db.add(self.callQueueName, engineCall, function(err){
+				if(err) throw err;
+
+				if(!!cb) self.addQueueCallback(engineCall.id, cb);
+			});
+		}
+	};
+
+	self.addQueueCallback = function(id, callback){
+		var engineCallback = new inGameBrowserEngineCallCallback(id, callback);
+
+		self.queueCallbacks[id] = engineCallback;
+	};
+
+	self.engineQueueHandler.events.onResponse = function(name, payload, asyncInterval){
+		console.log("onResponse", name, payload);
+
+		if(!!self.queueCallbacks[payload.id]){
+			var cb = self.queueCallbacks[payload.id];
+
+			cb.getCallback()(name, payload);
+		}
+
+		asyncInterval.done();
+	};
+}
+
+function inGameBrowserEngineResponse(name, payload, id){
+	var self = this;
+
+	self.name = name;
+	self.payload = payload;
+	self.id = id;
+
+
+	//Auto add id
+	self.autoAddIdToPayload = function(){
+			if(!!!self.payload.id){//If id not in payload
+				self.payload.id = self.id;
+			}
+	};
+
+	self.getId = function(){
+		return self.id;
+	};
+
+	self.getName = function(){
+		return self.name;
+	};
+
+	self.getPayload = function(){
+		return self.payload;
+	};
+
+	self.getDump = function(){
+		var dump = {
+			"name": self.getName(),
+			"payload": self.getPayload(),
+			"id": self.getId()
+		};
+
+		return dump;
+	};
+
+
+	self.setId = function(id){
+		self.id = id;
+	};
+
+	self.setName = function(name){
+		self.name = name;
+	};
+
+	self.setPayload = function(payload){
+		self.payload = payload;
+	};
+
+	self.autoAddIdToPayload();
+}
+
+function inGameBrowserEngineCall(name, payload){
+	var self = this;
+
+	self.id = Date.now();
+	self.name = name;
+	self.payload = payload;
+
+	//Auto add id
+	self.autoAddIdToPayload = function(){
+			if(!!!self.payload.id){//If id not in payload
+				self.payload.id = self.id;
+			}
+	};
+
+	self.getId = function(){
+		return self.id;
+	};
+
+	self.getName = function(){
+		return self.name;
+	};
+
+	self.getPayload = function(){
+		return self.payload;
+	};
+
+	self.getDump = function(){
+		var dump = {
+			"id": self.getId(),
+			"name": self.getName(),
+			"payload": self.getPayload()
+		};
+
+		return dump;
+	};
+
+
+	self.setId = function(id){
+		self.id = id;
+	};
+
+	self.setName = function(name){
+		self.name = name;
+	};
+
+	self.setPayload = function(payload){
+		self.payload = payload;
+	};
+
+	self.autoAddIdToPayload();
+}
+
+function inGameBrowserEngineCallCallback(id, callback){
+	var self = this;
+
+	self.id = id;
+	self.callback = callback;
+
+	self.getId = function(){
+		return self.id;
+	};
+
+	self.getCallback = function(){
+		return self.callback;
+	};
+
+
+	self.setId = function(id){
+		self.id = id;
+	};
+
+	self.setCallback = function(callback){
+		self.callback = callback;
+	};
+}
+
+function asyncInterval(){
+	var self = this;
+
+	self.interation = {};
+	self.interationNumber = 0;
+	self.asyncCompleteFlag = false;
+
+	self.checkInterval = undefined;
+
+	self.start = function(toRun, speed){//toRun must be passed asyncInterval, so it can set asyncCompleteFlag
+		self.checkInterval = setInterval(function(){
+			self.checkComplete(toRun, speed);
+		}, 10);
+	};
+
+	self.end = function(){
+		if(!!self.checkInterval){
+			clearInterval(self.checkInterval);
+		}
+
+		self.checkInterval = undefined;
+		self.asyncCompleteFlag = false;
+	};
+
+	self.done = function(){
+		self.asyncCompleteFlag = true;
+	};
+
+	self.checkComplete = function(toRun, speed){
+		if(!!self.interation[self.interationNumber]){//Currently waiting
+			var interationStart = self.interation[self.interationNumber];
+			var dif = Date.now() - interationStart;
+
+			if(dif >= speed && self.asyncCompleteFlag){//Speed has been met, Async function has completed
+				self.interationNumber = self.interationNumber + 1;
+				self.asyncCompleteFlag = false;
+			}
+		} else{//Start new waiting
+			self.interation[self.interationNumber] = Date.now();
+			toRun(self);
+		}
+	};
+}
+
 
 function loadKOTemplate(file, element, vm, cb){
 	getFile();
