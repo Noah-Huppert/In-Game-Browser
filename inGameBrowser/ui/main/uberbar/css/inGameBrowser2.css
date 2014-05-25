@@ -60,7 +60,7 @@
 }
 
 #inGameBrowser-Uberbar .inGameBrowser-SessionName{
-	max-width: 100px;
+
 }
 
 
@@ -70,6 +70,7 @@
 	padding: 10px;
 	border: 1px #585858 solid;
 	background: #282828;
+	position: absolute;
 }
 
 .inGameBrowser-BrowserTopBar{
@@ -90,9 +91,5 @@
 }
 
 .inGameBrowser-URLGo{
-
-}
-
-.ui-resizable-handle{
-	//border: 1px solid #ffffff;
+	height: 38px;
 }

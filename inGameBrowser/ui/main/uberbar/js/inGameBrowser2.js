@@ -4,6 +4,8 @@ if(inGameBrowser !== undefined){//Only one in game browser
 	//loadScript('coui://ui/main/uberbar/js/interact.js');
 
 	var inGameBrowser = new inGameBrowser();
+	var inGameBrowserDB = new inGameBrowserDB();
+	var inGameBrowserDataManager = new inGameBrowserDataManager(inGameBrowser, inGameBrowserDB);
 	inGameBrowser.injectUberbarUI();
 }
 
@@ -14,11 +16,25 @@ function inGameBrowser(){
 	self.id = ko.observable();
 	self.sessions = ko.observableArray();
 
+	self.events = {
+		"addSession": function(id){},
+		"openSession": function(id){},
+		"closeSession": function(id){},
+		"minimizeSession": function(id){},
+		"dataChange": function(data){}
+	};
+
+	self.sessions.subscribe(self.events.dataChange);
 	self.id(Date.now());
 
 	self.addSession = function(title, url){
 		var newSession = new inGameBrowserSession(title, url);
+		newSession.setInGameBrowser(self);
 		self.sessions.push(newSession);
+
+		self.events.dataChange(self.sessions());
+		self.events.addSession(newSession.getId());
+
 		self.openSession(newSession.id());
 	};
 
@@ -56,14 +72,43 @@ function inGameBrowser(){
 
 				setInterval(function(){
 					var title = $("#" + id + " .inGameBrowser-Browser iframe").contents().find("title").html();
-					title = !!title ? title : "Tab";
+					if(session.getActive()){
+						title = !!title ? title : session.getTitle();
+					} else{
+						title = session.getTitle();
+					}
 					session.setTitle(title);
 				}, 1000);
 
+				//Movement
 				var browserID = "#" + id + " .inGameBrowser-Browser";
 
-				$(browserID).draggable();
-				$(browserID).resizable();
+				$(browserID).draggable({
+					drag: function(){
+						session.updatePosition($(browserID));
+						self.events.dataChange(self.sessions());
+					}
+				});
+				$(browserID).resizable({
+					resize: function(){
+						session.updateDimensions($(browserID));
+						self.events.dataChange(self.sessions());
+					}
+				});
+
+				if(!!session.getDimensions() && !!session.getPosition()){
+					var element = $(browserID);
+					//+ 22 because there is a 1px border and 10px padding, so padding per side = 11px, but have to acount for top and bottom or left and right
+					element.width(session.getDimensions().width + 22);
+					element.height(session.getDimensions().height + 22);
+
+					element.offset({
+						top: session.getPosition().top,
+						left: session.getPosition().left
+					});
+				} else{
+					session.bindDimenPos($(browserID));
+				}
 
 			});
 
@@ -71,6 +116,9 @@ function inGameBrowser(){
 		} else{
 			self.minimizeSession(id);
 		}
+
+		self.events.dataChange(self.sessions());
+		self.events.openSession(id);
 	};
 
 	self.closeSession = function(id){
@@ -82,6 +130,9 @@ function inGameBrowser(){
 
 		}
 		self.sessions.remove(session);
+
+		self.events.dataChange(self.sessions());
+		self.events.closeSession(id);
 	};
 
 	self.minimizeSession = function(id){
@@ -91,20 +142,32 @@ function inGameBrowser(){
 			$('#inGameBrowser-' + session.id()).remove();
 			session.active(false);
 		}
+
+		self.events.dataChange(self.sessions());
+		self.events.closeSession(id);
 	};
 
 	self.injectUberbarUI = function(){
-		loadKOTemplate('uberbar.html', '.div-social-bar', self);
+		setInterval(function(){
+			if($('.div-social-bar div #inGameBrowser-Uberbar').length === 0){
+				loadKOTemplate('uberbar.html', '.div-social-bar', self);
+			}
+		}, 1000);
 	};
 }
 
-function inGameBrowserSession(title, url, id){
+function inGameBrowserSession(title, url, id, inGameBrowser){
 	var self = this;
 
 	self.id = ko.observable();
 	self.title = ko.observable();
 	self.url = ko.observable();
 	self.active = ko.observable();
+
+	self.position = ko.observable();
+	self.dimensions = ko.observable();
+
+	self.inGameBrowser = inGameBrowser;
 
 	if(id !== undefined){
 		self.id(id);
@@ -116,16 +179,97 @@ function inGameBrowserSession(title, url, id){
 	self.url(url);
 	self.active(false);
 
-	self.setURL = function(url){
-		self.url("coui://ui/main/uberbar/templates/loadingPage.html");
+	self.getId = function(){
+		return self.id();
+	};
 
-		setTimeout(function(){
-			self.url(url);
-		}, 500);
+	self.getTitle = function(){
+		return self.title();
+	};
+
+	self.getUrl = function(){
+		return self.url();
+	};
+
+	self.getActive = function(){
+		return self.active();
+	};
+
+	self.getDump = function(){
+		var dump = {
+			"id": self.id(),
+			"title": self.title(),
+			"url": self.url(),
+			"active": self.active(),
+			"position": self.getPosition(),
+			"dimensions": self.getDimensions()
+		};
+
+		return dump;
+	};
+
+	self.getPosition = function(){
+		return self.position();
+	};
+
+	self.getDimensions = function(){
+		return self.dimensions();
+	};
+
+
+	self.setId = function(id){
+		self.id(id);
 	};
 
 	self.setTitle = function(title){
 		self.title(title);
+	};
+
+	self.setURL = function(url){
+		//$('#inGameBrowser-' + self.getId() + '.inGameBrowser-BrowserIframe').attr('src', 'coui://ui/main/uberbar/templates/loadingPage.html');
+		self.url("coui://ui/main/uberbar/templates/loadingPage.html");
+
+		setTimeout(function(){
+			self.url(url);
+			self.inGameBrowser.events.dataChange(self.inGameBrowser.sessions());
+		}, 500);
+	};
+
+	self.setActive = function(active){
+		self.active(active);
+	};
+
+	self.setPosition = function(position){
+		self.position(position);
+	};
+
+	self.setDimensions = function(dimensions){
+		self.dimensions(dimensions);
+	};
+
+	self.setInGameBrowser = function(inGameBrowser){
+		self.inGameBrowser = inGameBrowser;
+	};
+
+	self.updatePosition = function(element){
+		//element = element.parent();
+
+		self.position({
+			"top": element.position().top,
+			"left": element.position().left
+		});
+	};
+
+	self.updateDimensions = function(element){
+		self.dimensions({
+			"width": element.width(),
+			"height": element.height()
+		});
+	};
+
+	self.bindDimenPos = function(element){
+		self.updatePosition(element);
+		self.updateDimensions(element);
 	};
 }
 
@@ -135,6 +279,9 @@ function inGameBrowserDB(){
 	self.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
 	self.db = {};
 	self.data = {};
+	self.constant = {};
+
+	self.constant.sessions = "inGameBrowser-sessions";
 
 	self.open = function(dbName, cb){
     var version = 1;
@@ -143,7 +290,11 @@ function inGameBrowserDB(){
     request.onupgradeneeded = function(e){
         var db = e.target.result;
 
-        e.target.transaction.onerror = bs.db.onerror;
+				this.onError = function(e){
+					if(!!cb) cb(e);
+				};
+
+        e.target.transaction.onerror = this.onError;
 
         if(db.objectStoreNames.contains(dbName)){
             db.deleteObjectStore(dbName);
@@ -151,10 +302,8 @@ function inGameBrowserDB(){
 
         var store = db.createObjectStore(dbName,
         {
-            keyPath: "key"
+            keyPath: "id"
         });
-
-        bs.events.db.onUpgrade({ "dbName": dbName });
     };
 
     request.onsuccess = function(e){
@@ -165,9 +314,7 @@ function inGameBrowserDB(){
 				if(!!cb) cb();
     };
 
-    request.onerror = function(e){
-			if(!!cb) cb(e);
-		};
+    request.onerror = this.onError;
 	};
 
 	self.add = function(sName, sData, cb){
@@ -194,8 +341,8 @@ function inGameBrowserDB(){
 
 		var request;
 
-		if(sData.key !== undefined){
-			request = store.delete(sData.key);
+		if(sData.getId() !== undefined){
+			request = store.delete(sData.getId());
 		} else{
 			bs.alert("To delete an object the object needs and 'id' key", "bs.db.remove() sData id check");
 			return;
@@ -230,7 +377,25 @@ function inGameBrowserDB(){
 			return request;
 	};
 
-	self.getDBData = function(dbName){
+	self.clear = function(sName, cb){
+		var db = self.db[sName];
+		var transaction = db.transaction([sName], "readwrite");
+		var store = transaction.objectStore(sName);
+
+		var request = store.clear();
+
+		request.onsuccess = function(e){
+			if(!!cb) cb();
+		};
+
+		request.onerror = function(e){
+			if(!!cb) cb(e);
+		};
+
+		return request;
+	};
+
+	self.getDBData = function(dbName, cb){
 			var db = self.db[dbName];
 			var transaction = db.transaction([dbName], "readwrite");
 			var store = transaction.objectStore(dbName);
@@ -243,12 +408,22 @@ function inGameBrowserDB(){
 			cursorRequest.onsuccess = function(e){
 					var result = e.target.result;
 
-					if(result !== undefined){
+					if(!!!result){
 						self.data[dbName] = dbStoreVar;
 						if(!!cb) cb();
+						return;
 					}
 
-					dbStoreVar.push(result.value);
+					if(dbName === self.constant.sessions){
+						var session = result.value;
+						var newSession = new inGameBrowserSession(session.title, session.url, session.id);
+						newSession.setActive(session.active);
+						newSession.setPosition(session.position);
+						newSession.setDimensions(session.dimensions);
+						dbStoreVar.push(newSession);
+					} else{
+						dbStoreVar.push(result.value);
+					}
 
 					result.continue();
 			};
@@ -257,6 +432,12 @@ function inGameBrowserDB(){
 				if(!!cb) cb(e);
 			};
 	};
+
+
+	self.getConstant = function(key){
+		var constant = !!self.constant[key] ? self.constant[key] : null;
+		return constant;
+	};
 }
 
 function inGameBrowserDataManager(inGameBrowser, db){
@@ -264,6 +445,51 @@ function inGameBrowserDataManager(inGameBrowser, db){
 
 	self.inGameBrowser = inGameBrowser;
 	self.db = db;
+
+	self.sessionsName = self.db.getConstant("sessions");
+
+	function getPrevSessionData(){
+		function openSessions(){
+			self.db.open(self.sessionsName, function(err){
+				if(err) throw err;
+
+				getSessions();
+			});
+		}
+
+		function getSessions(){
+			self.db.getDBData(self.sessionsName, function(err){
+				if(err) throw err;
+
+				var sessionsData = self.db.data[self.sessionsName];
+				self.inGameBrowser.sessions(sessionsData);
+
+				$.each(sessionsData, function(key, value){
+					value.setInGameBrowser(self.inGameBrowser);
+					if(value.getActive()){
+						value.setActive(false);
+						self.inGameBrowser.openSession(value.getId());
+					}
+				});
+			});
+		}
+
+		openSessions();
+	}
+
+
+	function setData(data){
+		self.db.clear(self.sessionsName, function(err){
+			if(err) throw err;
+
+			$.each(data, function(key, value){
+				self.db.add(self.sessionsName, value);
+			});
+		});
+	}
+
+	getPrevSessionData();
+	self.inGameBrowser.events.dataChange = setData;
 }
 
 function loadKOTemplate(file, element, vm, cb){

@@ -2,7 +2,7 @@
 <html>
 
 	<head>
-		<title>Loading...</title>
+		<title id="title">Loading...</title>
 		<link href='http://fonts.googleapis.com/css?family=Knewave|Oswald' rel='stylesheet' type='text/css'>
 
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -67,6 +67,7 @@
 					clearInterval(interval);
 					$('#inGameBrowser-LoadingPage-Loading').hide();
 					$('#inGameBrowser-LoadingPage-Warning').show();
+					$('#title').html("Failed To Load Page");
 				}, 20000);
 			});
 		</script>
