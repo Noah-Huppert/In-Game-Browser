@@ -19,11 +19,10 @@
     "priority": 100,
     "scenes": {
         "uberbar": [
-            "coui://ui/main/uberbar/js/inGameBrowser2.js",
-            "coui://ui/main/uberbar/css/inGameBrowser2.css"
+            "coui://ui/main/uberbar/js/inGameBrowser_uberbar.js"
         ],
-        "main": [
-          "coui://ui/main/inGameBrowser.js"
+        "start": [
+            "coui://ui/main/game/start/inGameBrowser_start.js"
         ]
     },
     "enabled": true
