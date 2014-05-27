@@ -4,9 +4,9 @@
     "display_name": "In Game Browser",
     "description": "Adds an in game web browser",
     "author": "someonewhoisnobody",
-    "version": "2.0.0",
-    "build": "66516",
-    "date": "2014/5/23",
+    "version": "2.0.1",
+    "build": "66567",
+    "date": "2014/5/26",
     "signature": "not yet implemented",
     "forum": "https://forums.uberent.com/threads/rel-in-game-browser-v1-0.57290/",
     "category": [
@@ -15,7 +15,7 @@
         "uberbar"
     ],
     "id": "inGameBrowser",
-    "icon": "http://i.imgur.com/V5fra1Y.jpg",
+    "icon": "http://i.imgur.com/J9MG5mX.png",
     "priority": 100,
     "scenes": {
         "uberbar": [

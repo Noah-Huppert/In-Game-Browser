@@ -518,8 +518,8 @@ function loadKOTemplate(file, element, vm, cb){
     }
   }
 
-  function onFail(){
-    console.log("In Game Browser - loadKOTemplate: Failed");
+  function onFail(e){
+    console.log("In Game Browser - loadKOTemplate: Failed", e);
   }
 }
 
