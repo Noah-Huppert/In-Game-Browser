@@ -509,7 +509,7 @@ function loadKOTemplate(file, element, vm, cb){
   function doInject(data){
     var injectID = 'inGameBrowser-' + Date.now();
 
-    $(element).append("<div id='" + injectID + "'>" +  data + "</div>");
+    $(element).append("<div id='" + injectID + "' class='inGameBrowser'>" +  data + "</div>");
 
     ko.applyBindings(vm, $("#" + injectID)[0]);
 
