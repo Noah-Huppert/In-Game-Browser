@@ -1,3 +1,7 @@
+.inGameBrowser {
+	display: inline-block;
+}
+
 #inGameBrowser-Uberbar *{
 	display: inline-block;
 }
