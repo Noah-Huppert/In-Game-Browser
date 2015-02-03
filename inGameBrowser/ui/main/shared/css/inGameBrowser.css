@@ -1,4 +1,5 @@
 .inGameBrowser {
+	width: 100%;
 	display: inline-block;
 }
 
@@ -7,7 +8,7 @@
 }
 
 #inGameBrowser-Uberbar{
-	background: #000000;
+	//background: #000000;
 }
 
 #inGameBrowser-Uberbar #inGameBrowser-NewTab{

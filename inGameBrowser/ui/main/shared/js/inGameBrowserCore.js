@@ -141,8 +141,8 @@ function inGameBrowser(){
 
   self.injectUberbarUI = function(){
     setInterval(function(){
-      if($('.div-social-bar div #inGameBrowser-Uberbar').length === 0){
-        loadKOTemplate('uberbar.html', '.div-social-bar', self);
+      if($('.div-social-bar .content-wrapper div #inGameBrowser-Uberbar').length === 0){
+        loadKOTemplate('uberbar.html', '.div-social-bar .content-wrapper', self);
       }
     }, 1000);
   };
@@ -509,7 +509,7 @@ function loadKOTemplate(file, element, vm, cb){
   function doInject(data){
     var injectID = 'inGameBrowser-' + Date.now();
 
-    $(element).append("<div id='" + injectID + "' class='inGameBrowser'>" +  data + "</div>");
+    $(element).prepend("<div id='" + injectID + "' class='inGameBrowser'>" +  data + "</div>");
 
     ko.applyBindings(vm, $("#" + injectID)[0]);
 
